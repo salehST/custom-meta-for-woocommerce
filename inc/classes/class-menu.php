@@ -14,16 +14,23 @@ class Menu
 {
 
     use Singleton;
-
-    public $cansoft_module;
-
-    public $faq_heading;
-
+    /**
+     * Constructor to set up hooks
+     * This class is used to manage the admin menu for the plugin.
+     * @since 1.0.0
+     * @author Fazle Bari <fazlebarisn@gmail.com>
+     */
     protected function __construct()
     {
         $this->setup_hooks();
     }
 
+    /**
+     * Set up all hooks for the menu
+     * This method is used to register the admin menu and submenu items.
+     * @since 1.0.0
+     * @author Fazle Bari <fazlebarisn@gmail.com>
+     */
     protected function setup_hooks()
     {
         // Add menu
@@ -32,8 +39,8 @@ class Menu
 
     /**
      * Add menu in wordpress dashboard menu
-     *
-     * @return void
+     * @since 1.0.0
+     * @author Fazle Bari <fazlebarisn@gmail.com>
      */
     public function adminMenu()
     {
