@@ -16,15 +16,15 @@
  */
 defined('ABSPATH') or die('Nice Try!');
 
-if ( ! defined( 'FAQ_PRO_DIR_PATH' ) ) {
-	define( 'FAQ_PRO_DIR_PATH', __DIR__ );
+if ( ! defined( 'CMFW_DIR_PATH' ) ) {
+	define( 'CMFW_DIR_PATH', __DIR__ );
 }
 
-define( 'FAQ_PRO_FILE' , __FILE__ );
-define( 'FAQ_PRO_URL' , plugins_url( '' , FAQ_PRO_FILE ) );
-define( 'FAQ_PRO_BASENAME' , plugin_basename(__FILE__) );
+define( 'CMFW_FILE' , __FILE__ );
+define( 'CMFW_URL' , plugins_url( '' , CMFW_FILE ) );
+define( 'CMFW_BASENAME' , plugin_basename(__FILE__) );
 
-require_once FAQ_PRO_DIR_PATH . '/inc/helpers/autoloader.php';
+require_once CMFW_DIR_PATH . '/inc/helpers/autoloader.php';
 
 /**
  * If some task to perform during the plugin activation. Like create a new table
@@ -32,10 +32,10 @@ require_once FAQ_PRO_DIR_PATH . '/inc/helpers/autoloader.php';
  * @since 1.0.0
  * @author Fazle Bari <fazlebarisn@gmail.com>
  */
-function activate_faq_pro(){
-	\FAQ_PRO\Inc\Activate::get_instance();
+function activate_cmfw(){
+	\CMFW\Inc\Activate::get_instance();
 }
-register_activation_hook( __FILE__, 'activate_faq_pro');
+register_activation_hook( __FILE__, 'activate_cmfw');
 
 /**
  * If some task to perform during the plugin deactivation. Like delete plugin table
@@ -43,23 +43,23 @@ register_activation_hook( __FILE__, 'activate_faq_pro');
  * @since 1.0.0
  * @author Fazle Bari <fazlebarisn@gmail.com>
  */
-function deactivate_faq_pro(){
-	\FAQ_PRO\Inc\Deactivate::get_instance();
+function deactivate_cmfw(){
+	\CMFW\Inc\Deactivate::get_instance();
 }
-register_deactivation_hook( __FILE__, 'deactivate_faq_pro');
+register_deactivation_hook( __FILE__, 'deactivate_cmfw');
 
 /**
  * This is the pluign main class, We will active or deactive all class from here
  * @since 1.0.0
  * @author Fazle Bari <fazlebarisn@gmail.com>
  */
-function faq_pro_plugin_instance() {
+function cmfw_plugin_instance() {
 
-	if ( in_array( 'woo-product-faq/woo-product-faq.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-		\FAQ_PRO\Inc\FAQ_PRO::get_instance();
+	if ( in_array( 'custom-meta-for-woocommerce/custom-meta-for-woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+		\CMFW\Inc\CMFW::get_instance();
 
 		// Load extra functions file
-		require_once FAQ_PRO_DIR_PATH . '/functions.php';
+		require_once CMFW_DIR_PATH . '/functions.php';
 	}
 }
-add_action('plugins_loaded' , 'faq_pro_plugin_instance'); 
+add_action('plugins_loaded' , 'cmfw_plugin_instance');

@@ -25,7 +25,7 @@
  * @package faq-pro
  */
 
-namespace FAQ_PRO\Inc\Traits;
+namespace CMFW\Inc\Traits;
 
 trait Singleton {
 

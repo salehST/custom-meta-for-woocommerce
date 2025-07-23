@@ -5,9 +5,9 @@
  * @package faq-pro
  */
 
-namespace FAQ_PRO\Inc;
+namespace CMFW\Inc;
 
-use FAQ_PRO\Inc\Traits\Singleton;
+use CMFW\Inc\Traits\Singleton;
 
 class Assets {
 
@@ -30,7 +30,7 @@ class Assets {
 
 	public function frontendStyles(){
 		// Register Syle
-		wp_register_style('faq-pro', FAQ_PRO_URL . '/assets/css/faq-pro.css', [], filemtime( FAQ_PRO_DIR_PATH . '/assets/css/faq-pro.css'), 'all');
+		wp_register_style('faq-pro', CMFW_URL . '/assets/css/faq-pro.css', [], filemtime( CMFW_DIR_PATH . '/assets/css/faq-pro.css'), 'all');
 
 		// Enqueue Style
 		wp_enqueue_style('faq-pro');
@@ -38,7 +38,7 @@ class Assets {
 
 	public function frontendScripts(){
 		// Register Scripts
-		wp_register_script( 'faq-pro', FAQ_PRO_URL . '/assets/js/faq-pro.js', ['jquery'], filemtime( FAQ_PRO_DIR_PATH . '/assets/js/faq-pro.js'), true );
+		wp_register_script( 'faq-pro', CMFW_URL . '/assets/js/faq-pro.js', ['jquery'], filemtime( CMFW_DIR_PATH . '/assets/js/faq-pro.js'), true );
 
 		// Enqueue Script
 		wp_enqueue_script('faq-pro');
@@ -46,7 +46,7 @@ class Assets {
 
 	public function adminStyle(){
 		// Register Syle
-		wp_register_style('faq-pro-admin', FAQ_PRO_URL . '/assets/css/faq-pro-admin.css', [], filemtime( FAQ_PRO_DIR_PATH . '/assets/css/faq-pro-admin.css'), 'all');
+		wp_register_style('faq-pro-admin', CMFW_URL . '/assets/css/faq-pro-admin.css', [], filemtime( CMFW_DIR_PATH . '/assets/css/faq-pro-admin.css'), 'all');
 
 		// Enqueue Style
 		wp_enqueue_style('faq-pro-admin');

@@ -5,9 +5,9 @@
  * @package faq-pro
  */
 
-namespace FAQ_PRO\Inc;
+namespace CMFW\Inc;
 
-use FAQ_PRO\Inc\Traits\Singleton;
+use CMFW\Inc\Traits\Singleton;
 
 class Deactivate {
     use Singleton;

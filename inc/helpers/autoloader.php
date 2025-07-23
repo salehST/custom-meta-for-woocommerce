@@ -5,7 +5,7 @@
  * @package Hadudu
  */
 
-namespace FAQ_PRO\Inc\Helpers;
+namespace CMFW\Inc\Helpers;
 
 /**
  * Auto loader function.
@@ -16,7 +16,7 @@ namespace FAQ_PRO\Inc\Helpers;
  */
 function autoloader( $resource = '' ) {
 	$resource_path  = false;
-	$namespace_root = 'FAQ_PRO\\';
+	$namespace_root = 'CMFW\\';
 	$resource       = trim( $resource, '\\' );
 
 	if ( empty( $resource ) || strpos( $resource, '\\' ) === false || strpos( $resource, $namespace_root ) !== 0 ) {
@@ -68,7 +68,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( FAQ_PRO_DIR_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( CMFW_DIR_PATH ), $directory, $file_name );
 
 	}
 
@@ -84,4 +84,4 @@ function autoloader( $resource = '' ) {
 
 }
 
-spl_autoload_register( '\FAQ_PRO\Inc\Helpers\autoloader' );
+spl_autoload_register( '\CMFW\Inc\Helpers\autoloader' );
