@@ -34,7 +34,7 @@ class Menu
     protected function setup_hooks()
     {
         // Add menu
-        add_action('admin_menu', [$this, 'adminMenu']);
+        add_action('admin_menu', [$this, 'adminMenu'], 9);
 
         // add settings link 
         add_filter('plugin_action_links_' . plugin_basename(CMFW_BASENAME), [$this, 'addSettingsLink']);
