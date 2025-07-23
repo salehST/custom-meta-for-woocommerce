@@ -34,7 +34,11 @@ class Menu
     protected function setup_hooks()
     {
         // Add menu
-        add_action('admin_menu', [$this, 'adminMenu'],99);
+        add_action('admin_menu', [$this, 'adminMenu']);
+
+        // add settings link 
+        add_filter('plugin_action_links_' . plugin_basename(CMFW_BASENAME), [$this, 'addSettingsLink']);
+
     }
 
     /**
@@ -44,7 +48,7 @@ class Menu
      */
     public function adminMenu()
     {
-         add_menu_page(__('Custom Meta For WooCommerce', 'custom-meta-for-woocommerce'), __('Custom Meta for WooCommerce', 'custom-meta-for-woocommerce'), 'manage_options', 'custom-meta-for-woocommerce', [$this, 'adminPage'], 'dashicons-info');
+         add_menu_page(__('CMFW', 'custom-meta-for-woocommerce'), __('CMFW', 'custom-meta-for-woocommerce'), 'manage_options', 'custom-meta-for-woocommerce', [$this, 'adminPage'], 'dashicons-admin-generic');
 
     }
 
@@ -61,5 +65,37 @@ class Menu
         }
 
         include_once CMFW_DIR_PATH . '/inc/menu-pages/dashboard.php';
+    }
+
+
+    /*
+        *Add settigns link to plugin intallation page
+        * @since 1.0.0
+        * @author Hannan <hannannexus@gmail.com>
+    */
+
+
+    public function addSettingsLink($links){
+
+        $settings_url = esc_url( 
+            add_query_arg( 
+                'page', 
+                'custom-meta-for-woocommerce', 
+                admin_url( 'admin.php' ) 
+            )
+        );
+        
+        
+        $settings_link = sprintf( 
+            '<a href="%s">%s</a>',
+            $settings_url,
+            __( 'Settings', 'custom-meta-for-woocommerce' ) 
+        );
+        
+       
+        array_unshift( $links, $settings_link );
+        
+        return $links;
+
     }
 }
