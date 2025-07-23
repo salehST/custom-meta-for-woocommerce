@@ -22,7 +22,7 @@
  *
  * If you specifically need multiple objects, then use a normal class.
  *
- * @package faq-pro
+ * @package cmfw
  */
 
 namespace CMFW\Inc\Traits;

@@ -2,7 +2,7 @@
 /**
  * Plugin deactivation class
  *
- * @package faq-pro
+ * @package cmfw
  */
 
 namespace CMFW\Inc;
@@ -17,6 +17,12 @@ class Deactivate {
 		// $this->setup_hooks();
 	}
 
+	/**
+	 * Setup the hooks
+	 * This method is not needed for deactivation, but can be used for future hooks if necessary.
+	 * @since 1.0.0
+	 * @author Fazle Bari <fazlebarisn@gmail.com>
+	 */
 	protected function setup_hooks() {
         // actions hooks
 		add_action( 'init' , [ $this, 'example' ] );

@@ -3,7 +3,7 @@
 /**
  * All menu and submenu will be here
  *
- * @package faq-pro
+ * @package cmfw
  */
 
 namespace CMFW\Inc;

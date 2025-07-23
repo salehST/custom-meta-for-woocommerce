@@ -2,7 +2,7 @@
 /**
  * Plugin assets will be added here
  *
- * @package faq-pro
+ * @package cmfw
  */
 
 namespace CMFW\Inc;
@@ -17,6 +17,11 @@ class Assets {
 		$this->setup_hooks();
 	}
 
+	/**
+	 * Setup the hooks
+	 * @since 1.0.0
+	 * @author Fazle Bari <fazlebarisn@gmail.com>
+	 */
 	protected function setup_hooks() {
 
 		// Frontend Enqueue
@@ -28,33 +33,42 @@ class Assets {
 		add_action('admin_enqueue_scripts', [$this, 'adminScripts'], 20 );
 	}
 
+	/**
+	 * Enqueue admin scripts
+	 * @since 1.0.0
+	 * @author Fazle Bari <fazlebarisn@gmail.com>
+	 */
 	public function frontendStyles(){
 		// Register Syle
-		wp_register_style('faq-pro', CMFW_URL . '/assets/css/faq-pro.css', [], filemtime( CMFW_DIR_PATH . '/assets/css/faq-pro.css'), 'all');
+		wp_register_style('cmfw', CMFW_URL . '/assets/css/cmfw.css', [], filemtime( CMFW_DIR_PATH . '/assets/css/cmfw.css'), 'all');
 
 		// Enqueue Style
-		wp_enqueue_style('faq-pro');
+		wp_enqueue_style('cmfw');
 	}
 
+	/**
+	 * Enqueue admin scripts
+	 * @since 1.0.0
+	 * @author Fazle Bari <fazlebarisn@gmail.com>
+	 */
 	public function frontendScripts(){
 		// Register Scripts
-		wp_register_script( 'faq-pro', CMFW_URL . '/assets/js/faq-pro.js', ['jquery'], filemtime( CMFW_DIR_PATH . '/assets/js/faq-pro.js'), true );
+		wp_register_script( 'cmfw', CMFW_URL . '/assets/js/cmfw.js', ['jquery'], filemtime( CMFW_DIR_PATH . '/assets/js/cmfw.js'), true );
 
 		// Enqueue Script
-		wp_enqueue_script('faq-pro');
+		wp_enqueue_script('cmfw');
 	}
 
+	/**
+	 * Enqueue admin scripts
+	 * @since 1.0.0
+	 * @author Fazle Bari <fazlebarisn@gmail.com>
+	 */
 	public function adminStyle(){
 		// Register Syle
-		wp_register_style('faq-pro-admin', CMFW_URL . '/assets/css/faq-pro-admin.css', [], filemtime( CMFW_DIR_PATH . '/assets/css/faq-pro-admin.css'), 'all');
+		wp_register_style('cmfw-admin', CMFW_URL . '/assets/css/cmfw-admin.css', [], filemtime( CMFW_DIR_PATH . '/assets/css/cmfw-admin.css'), 'all');
 
 		// Enqueue Style
-		wp_enqueue_style('faq-pro-admin');
-	}
-
-	public function adminScripts(){
-		wp_localize_script( 'faq-admin-script', 'wooFaqPro', [
-			'is_pro' => true,
-		]);
+		wp_enqueue_style('cmfw-admin');
 	}
 }
