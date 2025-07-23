@@ -34,7 +34,7 @@ class Menu
     protected function setup_hooks()
     {
         // Add menu
-        add_action('admin_menu', [$this, 'adminMenu'], 50);
+        add_action('admin_menu', [$this, 'adminMenu'], 20);
 
         // add settings link 
         add_filter('plugin_action_links_' . plugin_basename(CMFW_BASENAME), [$this, 'addSettingsLink']);
@@ -48,7 +48,7 @@ class Menu
      */
     public function adminMenu()
     {
-         add_menu_page(__('CMFW', 'custom-meta-for-woocommerce'), __('CMFW', 'custom-meta-for-woocommerce'), 'manage_options', 'custom-meta-for-woocommerce', [$this, 'adminPage'], 'dashicons-admin-generic');
+         add_menu_page(__('CMFW', 'custom-meta-for-woocommerce'), __('CMFW', 'custom-meta-for-woocommerce'), 'manage_options', 'custom-meta-for-woocommerce', [$this, 'adminPage'], 'dashicons-admin-generic',55);
 
     }
 
