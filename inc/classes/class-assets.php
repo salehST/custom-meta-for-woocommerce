@@ -30,7 +30,7 @@ class Assets {
 
 		// Admin Enqueue
 		add_action('admin_enqueue_scripts', [$this, 'adminStyle'] );
-		add_action('admin_enqueue_scripts', [$this, 'adminScripts'], 20 );
+		// add_action('admin_enqueue_scripts', [$this, 'adminScripts'], 20 );
 	}
 
 	/**
