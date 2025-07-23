@@ -34,7 +34,7 @@ class Menu
     protected function setup_hooks()
     {
         // Add menu
-        add_action('admin_menu', [$this, 'adminMenu']);
+        add_action('admin_menu', [$this, 'adminMenu'],99);
     }
 
     /**
@@ -44,7 +44,22 @@ class Menu
      */
     public function adminMenu()
     {
-        // add_menu_page(__('Cansoft Core', 'cansoft'), __('Cansoft Core', 'cansoft'), 'manage_options', 'cansoft', [$this, 'adminPage'], 'dashicons-info');
+         add_menu_page(__('Custom Meta For WooCommerce', 'custom-meta-for-woocommerce'), __('Custom Meta for WooCommerce', 'custom-meta-for-woocommerce'), 'manage_options', 'custom-meta-for-woocommerce', [$this, 'adminPage'], 'dashicons-info');
 
+    }
+
+    /*
+     * Add adminPage method for menu settings page
+     * @since 1.0.0
+     * @author Hannan <hannannexus@gmail.com> 
+    
+    */
+
+    public function adminPage(){
+        if( !current_user_can('manage_options')){
+            return;
+        }
+
+        include_once CMFW_DIR_PATH . '/inc/menu-pages/dashboard.php';
     }
 }

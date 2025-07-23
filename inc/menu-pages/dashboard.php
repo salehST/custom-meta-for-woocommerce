@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h1>Cansoft Core</h1>
+    <h1>Custom Meta For WooCommerce</h1>
     <form method="post" action="options.php">
         <?php 
             settings_fields('cansoft-settings-group');

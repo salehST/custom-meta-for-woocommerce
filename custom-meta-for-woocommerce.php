@@ -58,6 +58,7 @@ function cmfw_plugin_instance() {
 	if ( in_array( 'custom-meta-for-woocommerce/custom-meta-for-woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
 		\CMFW\Inc\CMFW::get_instance();
 
+		
 		// Load extra functions file
 		require_once CMFW_DIR_PATH . '/functions.php';
 	}
