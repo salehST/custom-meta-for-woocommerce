@@ -27,7 +27,7 @@ define( 'CMFW_BASENAME' , plugin_basename(__FILE__) );
 require_once CMFW_DIR_PATH . '/inc/helpers/autoloader.php';
 
 /**
- * If some task to perform during the plugin activation. Like create a new table
+ * If some task to perform during the plugin activation. Like create a new table.
  * Do not write any in this class code that does not need to execute during the plugin activation 
  * @since 1.0.0
  * @author Fazle Bari <fazlebarisn@gmail.com>
