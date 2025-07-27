@@ -66,9 +66,9 @@ class Assets {
 	 */
 	public function adminStyle(){
 		// Register Syle
-		wp_register_style('cmfw-admin', CMFW_URL . '/assets/css/cmfw-admin.css', [], filemtime( CMFW_DIR_PATH . '/assets/css/cmfw-admin.css'), 'all');
+		wp_register_style('cmfw-admin-settings', CMFW_URL . '/assets/css/cmfw-admin-settings.css', [], filemtime( CMFW_DIR_PATH . '/assets/css/cmfw-admin.css'), 'all');
 
 		// Enqueue Style
-		wp_enqueue_style('cmfw-admin');
+		wp_enqueue_style('cmfw-admin-settings');
 	}
 }

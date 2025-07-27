@@ -48,17 +48,17 @@ class Menu
      */
     public function adminMenu()
     {
-         add_menu_page(__('CMFW', 'custom-meta-for-woocommerce'), __('CMFW', 'custom-meta-for-woocommerce'), 'manage_options', 'custom-meta-for-woocommerce', [$this, 'adminPage'], 'dashicons-admin-generic',55);
+        add_menu_page(__('CMFW', 'custom-meta-for-woocommerce'), __('CMFW', 'custom-meta-for-woocommerce'), 'manage_options', 'custom-meta-for-woocommerce', [$this, 'adminPage'], 'dashicons-admin-generic',55);
+        add_submenu_page('custom-meta-for-woocommerce', __('Settings', 'custom-meta-for-woocommerce'), __('Settings', 'custom-meta-for-woocommerce'), 'manage_options', 'custom-meta-settings', [$this, 'settingsPage']);
 
     }
 
-    /*
-     * Add adminPage method for menu settings page
+    /**
+     * Add adminPage method for menu dashboard page
      * @since 1.0.0
      * @author Hannan <hannannexus@gmail.com> 
     
     */
-
     public function adminPage(){
         if( !current_user_can('manage_options')){
             return;
@@ -67,14 +67,11 @@ class Menu
         include_once CMFW_DIR_PATH . '/inc/menu-pages/dashboard.php';
     }
 
-
     /*
         *Add settigns link to plugin intallation page
         * @since 1.0.0
         * @author Hannan <hannannexus@gmail.com>
     */
-
-
     public function addSettingsLink($links){
 
         $settings_url = esc_url( 
@@ -97,5 +94,13 @@ class Menu
         
         return $links;
 
+    }
+    /**
+     * Add settingsPage method for menu settings page
+     * @since 1.0.0
+     * Fazle Bari <fazlebarisn@gmail.com>
+    */
+    public function settingsPage(){
+        include_once CMFW_DIR_PATH . '/inc/menu-pages/settings.php';
     }
 }
